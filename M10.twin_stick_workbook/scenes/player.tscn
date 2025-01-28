@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjbfraxfjk8xt"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_0lfk7"]
+[ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://player/godot_bottom.png" id="1_2csby"]
+[ext_resource type="PackedScene" path="res://common/shadow.tscn" id="2_st54b"]
+[ext_resource type="Script" path="res://scenes/skin.gd" id="3_h7fmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bu7r"]
+radius = 23.0217
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_0lfk7")
+
+[node name="Skin" type="Sprite2D" parent="."]
+texture = ExtResource("1_2csby")
+script = ExtResource("3_h7fmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 35)
+shape = SubResource("CircleShape2D_3bu7r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Shadow" parent="." instance=ExtResource("2_st54b")]
